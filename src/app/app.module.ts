@@ -9,6 +9,7 @@ import {
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
+    MatDialogModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
@@ -40,6 +41,7 @@ import { CardComponent } from './shared/card';
         MatRadioModule,
         MatIconModule,
         MatListModule,
+        MatDialogModule,
         HttpClientModule,
         APP_ROUTES
     ],
