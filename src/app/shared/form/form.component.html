@@ -50,6 +50,8 @@
 		</mat-form-field>
 
 		<span *ngIf="form.controls.email.dirty && form.controls.email.errors?.required">Email is mandatory</span>
+		<span *ngIf="form.controls.email.dirty && form.controls.email.errors?.sfeirEmail"><br>Invalid email (ex: chegham.w@sfeir.com)</span>
+
 	  </p>
 
 	  <p formGroupName="address">
