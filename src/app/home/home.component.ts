@@ -2,6 +2,7 @@ import {
     Component,
     OnInit
 } from '@angular/core';
+import { PEOPLE } from '../_static/people';
 
 @Component({
     selector:    'sfeir-home',
@@ -9,17 +10,10 @@ import {
     styleUrls:   ['home.component.css']
 })
 export class HomeComponent implements OnInit {
-    name: string;
-
-    /* Better way :
-    private _name: string;
-    get name(): string {
-        return this._name;
-    }
-    */
+    private person: any;
 
     constructor() {
-        this.name = 'Angular 2';
+        this.person = PEOPLE[0];
     }
 
     /**
