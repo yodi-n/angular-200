@@ -24,10 +24,11 @@ import { PeopleAppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
 import { HomeComponent } from './home';
 import { PeopleComponent } from './people';
+import { AddDialogComponent } from './people/add-dialog/add-dialog.component';
 import { CardComponent } from './shared/card';
 
 @NgModule({
-    imports:      [
+    imports:         [
         BrowserModule,
         BrowserAnimationsModule,
         MatToolbarModule,
@@ -42,14 +43,16 @@ import { CardComponent } from './shared/card';
         HttpClientModule,
         APP_ROUTES
     ],
-    declarations: [
+    declarations:    [
         PeopleAppComponent,
         HomeComponent,
         PeopleComponent,
-        CardComponent
+        CardComponent,
+        AddDialogComponent
     ],
-    providers:    [HttpClient],
-    bootstrap:    [
+    entryComponents: [AddDialogComponent],
+    providers:       [HttpClient],
+    bootstrap:       [
         PeopleAppComponent
     ]
 })
