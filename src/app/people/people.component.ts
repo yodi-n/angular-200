@@ -21,4 +21,9 @@ export class PeopleComponent implements OnInit {
         this._http.get(`${BASE_URL}/api/peoples/`)
             .subscribe( (people) => this.people = people);
     }
+
+    delete(person: any) {
+        this._http.delete(`${BASE_URL}/api/peoples/${person.id}`)
+            .subscribe( (people) => this.people = people);
+    }
 }
