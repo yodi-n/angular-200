@@ -4,11 +4,13 @@ import {
 } from '@angular/common/http';
 // CORE DEPS
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 // MATERIAL DESIGN MODULES
 import {
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
+    MatDialogModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
@@ -26,6 +28,7 @@ import { HomeComponent } from './home';
 import { PeopleComponent } from './people';
 import { AddDialogComponent } from './people/add-dialog/add-dialog.component';
 import { CardComponent } from './shared/card';
+import { FormComponent } from './shared/form';
 
 @NgModule({
     imports:         [
@@ -41,14 +44,17 @@ import { CardComponent } from './shared/card';
         MatIconModule,
         MatListModule,
         HttpClientModule,
-        APP_ROUTES
+        MatDialogModule,
+        APP_ROUTES,
+        FormsModule
     ],
     declarations:    [
         PeopleAppComponent,
         HomeComponent,
         PeopleComponent,
         CardComponent,
-        AddDialogComponent
+        AddDialogComponent,
+        FormComponent
     ],
     entryComponents: [AddDialogComponent],
     providers:       [HttpClient],
