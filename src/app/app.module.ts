@@ -4,7 +4,7 @@ import {
 } from '@angular/common/http';
 // CORE DEPS
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 // MATERIAL DESIGN MODULES
 import {
     MatButtonModule,
@@ -47,7 +47,7 @@ import { UpdateComponent } from './update';
         HttpClientModule,
         MatDialogModule,
         APP_ROUTES,
-        FormsModule
+        ReactiveFormsModule
     ],
     declarations:    [
         PeopleAppComponent,
