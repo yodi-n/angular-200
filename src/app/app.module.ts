@@ -1,5 +1,7 @@
-import { HttpClientModule } from '@angular/common/http';
-
+import {
+    HttpClient,
+    HttpClientModule
+} from '@angular/common/http';
 // CORE DEPS
 import { NgModule } from '@angular/core';
 // MATERIAL DESIGN MODULES
@@ -18,9 +20,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PeopleAppComponent } from './app.component';
-import { HomeComponent } from './home';
 
-// import { APP_ROUTES } from './app.routes';
+import { APP_ROUTES } from './app.routes';
+import { HomeComponent } from './home';
 
 @NgModule({
     imports:      [
@@ -35,13 +37,14 @@ import { HomeComponent } from './home';
         MatRadioModule,
         MatIconModule,
         MatListModule,
-        HttpClientModule
+        HttpClientModule,
+        APP_ROUTES
     ],
     declarations: [
         PeopleAppComponent,
         HomeComponent
     ],
-    providers:    [],
+    providers:    [HttpClient],
     bootstrap:    [
         PeopleAppComponent
     ]
