@@ -1,3 +1,5 @@
+import { HttpClientModule } from '@angular/common/http';
+
 // CORE DEPS
 import { NgModule } from '@angular/core';
 // MATERIAL DESIGN MODULES
@@ -30,7 +32,8 @@ import { HomeComponent } from './home';
         MatCheckboxModule,
         MatRadioModule,
         MatIconModule,
-        MatListModule
+        MatListModule,
+        HttpClientModule
     ],
     declarations: [
         PeopleAppComponent,
