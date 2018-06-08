@@ -20,6 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PeopleAppComponent } from './app.component';
 import { HomeComponent } from './home';
 
+// import { APP_ROUTES } from './app.routes';
+
 @NgModule({
     imports:      [
         BrowserModule,
