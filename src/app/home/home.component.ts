@@ -21,4 +21,8 @@ export class HomeComponent implements OnInit {
      */
     ngOnInit() {
     }
+
+    random() {
+        this.person = PEOPLE[Math.floor(Math.random() * PEOPLE.length)];
+    }
 }
