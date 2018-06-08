@@ -24,6 +24,7 @@ import { PeopleAppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
 import { HomeComponent } from './home';
 import { PeopleComponent } from './people';
+import { CardComponent } from './shared/card';
 
 @NgModule({
     imports:      [
@@ -44,7 +45,8 @@ import { PeopleComponent } from './people';
     declarations: [
         PeopleAppComponent,
         HomeComponent,
-        PeopleComponent
+        PeopleComponent,
+        CardComponent
     ],
     providers:    [HttpClient],
     bootstrap:    [
