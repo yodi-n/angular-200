@@ -6,16 +6,6 @@ import { Component } from '@angular/core';
     styleUrls:   ['app.component.css']
 })
 export class PeopleAppComponent {
-    name: string;
 
-    /* Better way :
-    private _name: string;
-    get name(): string {
-        return this._name;
-    }
-    */
-
-    constructor() {
-        this.name = 'Angular 2';
-    }
+    constructor() {}
 }
