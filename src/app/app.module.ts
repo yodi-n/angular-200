@@ -1,24 +1,25 @@
 // CORE DEPS
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 // MATERIAL DESIGN MODULES
 import {
-    MatToolbarModule,
-    MatCardModule,
-    MatTabsModule,
     MatButtonModule,
-    MatInputModule,
+    MatCardModule,
     MatCheckboxModule,
-    MatRadioModule,
     MatIconModule,
-    MatListModule
+    MatInputModule,
+    MatListModule,
+    MatRadioModule,
+    MatTabsModule,
+    MatToolbarModule
 } from '@angular/material';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PeopleAppComponent } from './app.component';
+import { HomeComponent } from './home';
 
 @NgModule({
-    imports: [
+    imports:      [
         BrowserModule,
         BrowserAnimationsModule,
         MatToolbarModule,
@@ -32,11 +33,13 @@ import { PeopleAppComponent } from './app.component';
         MatListModule
     ],
     declarations: [
-        PeopleAppComponent
+        PeopleAppComponent,
+        HomeComponent
     ],
-    providers: [ ],
-    bootstrap: [
-        PeopleAppComponent
+    providers:    [],
+    bootstrap:    [
+        HomeComponent
     ]
 })
-export class AppModule { }
+export class AppModule {
+}
