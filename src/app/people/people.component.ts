@@ -8,6 +8,7 @@ import {
     MatDialogRef
 } from '@angular/material';
 import { mergeMap } from 'rxjs/operators';
+import { PeopleService } from '../shared/people-service';
 import { AddDialogComponent } from './add-dialog/add-dialog.component';
 
 const BASE_URL = 'http://localhost:9000';
@@ -23,20 +24,29 @@ export class PeopleComponent implements OnInit {
     people;
     dialogStatus = 'inactive';
 
-    constructor(private _http: HttpClient, public dialog: MatDialog) {
+    constructor(private _peopleService: PeopleService, public dialog: MatDialog) {
     }
 
     /**
      * OnInit implementation
      */
     ngOnInit() {
-        this._http.get(`${BASE_URL}/api/peoples/`)
-            .subscribe((people) => this.people = people);
+        this._peopleService.fetch()
+            .subscribe( (people) => this.people = people);
     }
 
     delete(person: any) {
-        this._http.delete(`${BASE_URL}/api/peoples/${person.id}`)
-            .subscribe((people) => this.people = people);
+        this._peopleService.delete(person.id)
+            .subscribe( (people) => this.people = people);
+    }
+
+    add(person: any) {
+        this._peopleService.update(person)
+            .mergeMap( res => this._peopleService.fetch())
+            .subscribe( (people: any[]) => {
+                this.people = people;
+                this.hideDialog();
+            });
     }
 
     showDialog() {
@@ -57,15 +67,6 @@ export class PeopleComponent implements OnInit {
     hideDialog() {
         this.dialogStatus = 'inactive';
         this.addDialog.close();
-    }
-
-    add(person: any) {
-        this._http.post(`${BASE_URL}/api/peoples/`, person)
-            .pipe(mergeMap(res => this._http.get(`${BASE_URL}/api/peoples/`)))
-            .subscribe((people: any[]) => {
-                this.people = people;
-                this.hideDialog();
-            });
     }
 
 }

@@ -29,6 +29,7 @@ import { PeopleComponent } from './people';
 import { AddDialogComponent } from './people/add-dialog/add-dialog.component';
 import { CardComponent } from './shared/card';
 import { FormComponent } from './shared/form';
+import { PeopleService } from './shared/people-service';
 import { UpdateComponent } from './update';
 
 @NgModule({
@@ -59,7 +60,7 @@ import { UpdateComponent } from './update';
         UpdateComponent
     ],
     entryComponents: [AddDialogComponent],
-    providers:       [HttpClient],
+    providers:       [HttpClient, PeopleService],
     bootstrap:       [
         PeopleAppComponent
     ]

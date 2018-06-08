@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import {
     Component,
     OnInit
@@ -8,9 +7,10 @@ import {
     Router
 } from '@angular/router';
 import {
-    map,
-    mergeMap
+    flatMap,
+    map
 } from 'rxjs/operators';
+import { PeopleService } from '../shared/people-service';
 
 const BASE_URL = 'http://localhost:9000';
 
@@ -25,7 +25,7 @@ export class UpdateComponent implements OnInit {
     /**
      * Component constructor
      */
-    constructor(private _route: ActivatedRoute, private _router: Router, private _http: HttpClient) {
+    constructor(private _route: ActivatedRoute, private _router: Router, private _peopleService: PeopleService) {
         this.person = {
             address: {}
         };
@@ -38,13 +38,13 @@ export class UpdateComponent implements OnInit {
         this._route.params
             .pipe(
                 map((params: any) => params.id),
-                mergeMap((id: string) => this._http.get(`${BASE_URL}/api/peoples/${id}`))
+                flatMap((id: string) => this._peopleService.fetchOne(id))
             )
             .subscribe((person: any) => this.person = person);
     }
 
     submit(person: any) {
-        this._http.put(`${BASE_URL}/api/peoples/${person.id}`, person)
+        this._peopleService.update(person)
             .subscribe(() => this._router.navigate(['/people']));
     }
 
