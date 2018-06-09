@@ -27,6 +27,7 @@ import { APP_ROUTES } from './app.routes';
 import { HomeComponent } from './home';
 import { PeopleComponent } from './people';
 import { AddDialogComponent } from './people/add-dialog/add-dialog.component';
+import { SfeirBadgeDirective } from './shared/badge';
 import { CardComponent } from './shared/card';
 import { FormComponent } from './shared/form';
 import { NaPipe } from './shared/na-pipe';
@@ -59,7 +60,8 @@ import { UpdateComponent } from './update';
         AddDialogComponent,
         FormComponent,
         UpdateComponent,
-        NaPipe
+        NaPipe,
+        SfeirBadgeDirective
     ],
     entryComponents: [AddDialogComponent],
     providers:       [HttpClient, PeopleService],
