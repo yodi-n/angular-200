@@ -1,31 +1,30 @@
-<section>
-  <sfeir-card *ngFor="let person of people" [person]="person" (personDelete)="delete($event)"></sfeir-card>
-</section>
+<section [ngSwitch]="view">
 
-<section>
-  <mat-list>
-    <mat-list-item (click)="navigate(person)" *ngFor="let person of people" class="mat-whiteframe-2dp mat-card">
-      <img mat-list-avatar src="{{ person.photo }}">
-      <h3 mat-line> {{person.firstname}} {{person.lastname}} </h3>
-      <p mat-line>
-        <span> {{person.entity}} </span>
-        — <span>{{person.email}} </span>
-      </p>
-    </mat-list-item>
-  </mat-list>
-</section>
+  <section *ngSwitchCase="'card'">
+	<sfeir-card *ngFor="let person of people" [person]="person" (personDelete)="delete($event)"></sfeir-card>
+  </section>
 
-<section class="dialog-modal" [ngClass]="{ 'active': dialogStatus == 'active' }">
-  <sfeir-form (submit)="add($event)" (cancel)="hideDialog()"></sfeir-form>
+  <section *ngSwitchCase="'list'">
+	<mat-list>
+	  <mat-list-item (click)="navigate(person)" *ngFor="let person of people" class="mat-whiteframe-2dp mat-card">
+		<img mat-list-avatar src="{{ person.photo }}">
+		<h3 mat-line> {{person.firstname}} {{person.lastname}} </h3>
+		<p mat-line>
+		  <span> {{person.entity}} </span>
+		  — <span>{{person.email}} </span>
+		</p>
+	  </mat-list-item>
+	</mat-list>
+  </section>
 </section>
 
 <section class="buttons-fab" *ngIf="dialogStatus == 'inactive'">
   <button (click)="showDialog()" mat-fab color="accent" class="button-add">
-    <i class="material-icons">add</i>
+	<i class="material-icons">add</i>
   </button>
 
-  <button mat-fab color="warn">
-    <i class="material-icons">list</i>
-    <!-- <i class="material-icons">view_stream</i> -->
+  <button (click)="switchView()" mat-fab color="warn">
+	<i class="material-icons" *ngIf="view === 'card'">list</i>
+	<i class="material-icons" *ngIf="view === 'list'">view_stream</i>
   </button>
 </section>
