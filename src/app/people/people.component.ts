@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import {
     Component,
     OnInit
@@ -7,7 +6,7 @@ import {
     MatDialog,
     MatDialogRef
 } from '@angular/material';
-import { mergeMap } from 'rxjs/operators';
+import { flatMap } from 'rxjs/operators';
 import { PeopleService } from '../shared/people-service';
 import { AddDialogComponent } from './add-dialog/add-dialog.component';
 
@@ -32,18 +31,18 @@ export class PeopleComponent implements OnInit {
      */
     ngOnInit() {
         this._peopleService.fetch()
-            .subscribe( (people) => this.people = people);
+            .subscribe((people) => this.people = people);
     }
 
     delete(person: any) {
         this._peopleService.delete(person.id)
-            .subscribe( (people) => this.people = people);
+            .subscribe((people) => this.people = people);
     }
 
     add(person: any) {
         this._peopleService.update(person)
-            .mergeMap( res => this._peopleService.fetch())
-            .subscribe( (people: any[]) => {
+            .pipe(flatMap(res => this._peopleService.fetch()))
+            .subscribe((people: any[]) => {
                 this.people = people;
                 this.hideDialog();
             });

@@ -29,6 +29,7 @@ import { PeopleComponent } from './people';
 import { AddDialogComponent } from './people/add-dialog/add-dialog.component';
 import { CardComponent } from './shared/card';
 import { FormComponent } from './shared/form';
+import { NaPipe } from './shared/na-pipe';
 import { PeopleService } from './shared/people-service';
 import { UpdateComponent } from './update';
 
@@ -57,7 +58,8 @@ import { UpdateComponent } from './update';
         CardComponent,
         AddDialogComponent,
         FormComponent,
-        UpdateComponent
+        UpdateComponent,
+        NaPipe
     ],
     entryComponents: [AddDialogComponent],
     providers:       [HttpClient, PeopleService],
