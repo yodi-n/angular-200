@@ -22,6 +22,7 @@ export class PeopleComponent implements OnInit {
     private addDialog: MatDialogRef<AddDialogComponent>;
     people;
     dialogStatus = 'inactive';
+    view = 'card';
 
     constructor(private _peopleService: PeopleService, public dialog: MatDialog) {
     }
@@ -68,4 +69,7 @@ export class PeopleComponent implements OnInit {
         this.addDialog.close();
     }
 
+    switchView() {
+        this.view = (this.view === 'card') ? 'list' : 'card';
+    }
 }
