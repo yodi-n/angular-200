@@ -7,19 +7,15 @@ import { PEOPLE } from '../_static/people';
     styleUrls: ['home.component.css']
 })
 export class HomeComponent implements OnInit {
-  private _person: any;
+  public person: any;
 
   constructor() {
-      this._person = PEOPLE[0];
+      this.person = PEOPLE[0];
   }
 
   /**
    * OnInit implementation
    */
   ngOnInit() {
-  }
-
-  get person(): any {
-    return this._person;
   }
 }
