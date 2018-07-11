@@ -7,7 +7,7 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app",
+      "prefix": "sfeir",
       "schematics": {
         "@schematics/angular:class": {
           "spec": false
