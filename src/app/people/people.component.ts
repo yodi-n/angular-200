@@ -10,7 +10,7 @@ const BASE_URL = 'http://localhost:9000';
 })
 export class PeopleComponent implements OnInit {
 
-    private people;
+    private _people;
 
     constructor(private _http: HttpClient) {}
 
@@ -19,6 +19,16 @@ export class PeopleComponent implements OnInit {
      */
     ngOnInit() {
         this._http.get(`${BASE_URL}/api/peoples/`)
-            .subscribe( (people) => this.people = people);
+            .subscribe( (people) => this._people = people);
+    }
+
+    /**
+     * @name PeopleComponent#people
+     * @type { Getter }
+     * @description Getter of the private var _people
+     * @return { Array<any> } _people
+     */
+    get people(): Array<any> {
+      return this._people;
     }
 }
