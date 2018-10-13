@@ -1,7 +1,7 @@
 <section>
   <mat-card class="mat-whiteframe-2dp">
     <mat-card-title-group>
-      <img mat-card-mat-image [src]="person?.photo">
+      <img mat-card-mat-image [src]="person?.photo" *ngIf="person">
       <mat-card-title>
         <a href="#/people/1">
           <span>{{ person?.firstname }} {{ person?.lastname }}</span>
