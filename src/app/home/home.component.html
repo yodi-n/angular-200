@@ -1,5 +1,5 @@
 <section>
-  <sfeir-card [person]="person"></sfeir-card>
+  <sfeir-card *ngIf="person"   [person]="person"></sfeir-card>
 </section>
 
 <button mat-fab (click)="random()">
