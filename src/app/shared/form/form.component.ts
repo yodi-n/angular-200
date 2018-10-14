@@ -6,11 +6,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
     styleUrls: ['form.component.css']
 })
 export class FormComponent implements OnInit {
-    
-    @Output('cancel') cancel$: EventEmitter<any>;    
+    @Output('cancel') cancel$: EventEmitter<any>;
     @Output('personAdd') add$: EventEmitter<any>;
 
-   
     constructor() {
         this.add$ = new EventEmitter();
         this.cancel$ = new EventEmitter();
@@ -25,7 +23,7 @@ export class FormComponent implements OnInit {
     cancel() {
         this.cancel$.emit();
     }
-    
+
     add(person: any) {
         this.add$.emit(person);
     }
