@@ -10,7 +10,7 @@ const BASE_URL = 'http://localhost:9000';
 })
 export class PeopleComponent implements OnInit {
 
-    private people;
+    people;
 
     constructor(private _http: HttpClient) {}
 
